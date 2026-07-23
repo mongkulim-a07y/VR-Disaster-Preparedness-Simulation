@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "VR-Disaster-Preparedness-Simulation.slnx"
+    "dotnet.defaultSolution": "VR Disaster Preparedness Simulation.slnx"
 }
