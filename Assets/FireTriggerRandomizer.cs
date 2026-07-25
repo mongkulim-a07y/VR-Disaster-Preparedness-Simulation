@@ -12,6 +12,7 @@ public class FireTriggerRandomizer : MonoBehaviour
     public float maxInterval = 45f;
 
     private int lastIndex = -1;
+    private bool triggeringStopped = false;
 
     void Start()
     {
@@ -27,18 +28,31 @@ public class FireTriggerRandomizer : MonoBehaviour
 
     IEnumerator FireTriggerLoop()
     {
-        Debug.Log("Waiting initial delay: " + initialDelay + " seconds...");
         yield return new WaitForSeconds(initialDelay);
         TriggerRandomFire();
-        while (true)
+
+        while (!triggeringStopped)
         {
             float waitTime = Random.Range(minInterval, maxInterval);
-            Debug.Log("Waiting " + waitTime + " seconds before next fire trigger...");
-            yield return new WaitForSeconds(waitTime);
+            float elapsed = 0f;
+            GameObject currentFire = firePoints[lastIndex];
+
+            while (elapsed < waitTime)
+            {
+                if (currentFire != null && !currentFire.activeSelf)
+                {
+                    Debug.Log("Fire was put out before the next one could spawn. Stopping fire trigger system.");
+                    triggeringStopped = true;
+                    yield break;
+                }
+
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
             TriggerRandomFire();
         }
     }
-
     void TriggerRandomFire()
     {
         if (firePoints.Length == 0)
