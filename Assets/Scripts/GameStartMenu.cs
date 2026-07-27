@@ -37,7 +37,16 @@ public class GameStartMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        //Application.Quit();
+        Debug.Log("Quit button pressed!");
+
+        #if UNITY_EDITOR
+            // Exits Play Mode when testing inside the Unity Editor
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            // Closes the application in a built executable/standalone app
+            Application.Quit();
+        #endif
     }
 
     public void StartGame()

@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Turning; // Required for XRI 3.0+ turning providers
 
 public class SetTurnTypeFromPlayerPref : MonoBehaviour
 {
-    public ActionBasedSnapTurnProvider snapTurn;
-    public ActionBasedContinuousTurnProvider continuousTurn;
+    public SnapTurnProvider snapTurn;
+    public ContinuousTurnProvider continuousTurn;
 
     // Start is called before the first frame update
     void Start()
@@ -16,22 +16,19 @@ public class SetTurnTypeFromPlayerPref : MonoBehaviour
 
     public void ApplyPlayerPref()
     {
-        if(PlayerPrefs.HasKey("turn"))
+        if (PlayerPrefs.HasKey("turn"))
         {
             int value = PlayerPrefs.GetInt("turn");
-            if(value == 0)
+
+            if (value == 0) // Snap Turn
             {
-                snapTurn.leftHandSnapTurnAction.action.Enable();
-                snapTurn.rightHandSnapTurnAction.action.Enable();
-                continuousTurn.leftHandTurnAction.action.Disable();
-                continuousTurn.rightHandTurnAction.action.Disable();
+                if (snapTurn != null) snapTurn.enabled = true;
+                if (continuousTurn != null) continuousTurn.enabled = false;
             }
-            else if(value == 1)
+            else if (value == 1) // Continuous Turn
             {
-                snapTurn.leftHandSnapTurnAction.action.Disable();
-                snapTurn.rightHandSnapTurnAction.action.Disable();
-                continuousTurn.leftHandTurnAction.action.Enable();
-                continuousTurn.rightHandTurnAction.action.Enable();
+                if (snapTurn != null) snapTurn.enabled = false;
+                if (continuousTurn != null) continuousTurn.enabled = true;
             }
         }
     }
