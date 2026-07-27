@@ -10,6 +10,10 @@ public class FireTriggerRandomizer : MonoBehaviour
     public float initialDelay = 30f;
     public float minInterval = 15f;
     public float maxInterval = 45f;
+    [Header("Notification")]
+    public FireWarningNotification fireWarning;
+
+private bool firstFireTriggered = false;
 
     private int lastIndex = -1;
     private bool triggeringStopped = false;
@@ -64,6 +68,12 @@ public class FireTriggerRandomizer : MonoBehaviour
         int index = GetRandomIndexNoRepeat();
         Debug.Log("Triggering fire at index: " + index + " (" + firePoints[index].name + ")");
         firePoints[index].SetActive(true);
+        if (!firstFireTriggered)
+        {
+            firstFireTriggered = true;
+            if (fireWarning != null) fireWarning.ShowWarning();
+        }
+        
     }
 
     int GetRandomIndexNoRepeat()
