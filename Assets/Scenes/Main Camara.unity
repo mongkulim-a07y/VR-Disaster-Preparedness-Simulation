@@ -7023,9 +7023,9 @@ MonoBehaviour:
   - {fileID: 196644867}
   - {fileID: 101949163}
   - {fileID: 1499682010}
-  initialDelay: 30
-  minInterval: 60
-  maxInterval: 90
+  initialDelay: 5
+  minInterval: 40
+  maxInterval: 41
 --- !u!4 &595379788
 Transform:
   m_ObjectHideFlags: 0
