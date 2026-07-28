@@ -13,7 +13,10 @@ public class FireTriggerRandomizer : MonoBehaviour
     [Header("Notification")]
     public FireWarningNotification fireWarning;
 
-private bool firstFireTriggered = false;
+    [Header("Evacuation Timer")]
+    public EvacuationTimer evacuationTimer;
+
+    private bool firstFireTriggered = false;
 
     private int lastIndex = -1;
     private bool triggeringStopped = false;
@@ -47,6 +50,7 @@ private bool firstFireTriggered = false;
                 {
                     Debug.Log("Fire was put out before the next one could spawn. Stopping fire trigger system.");
                     triggeringStopped = true;
+                    if (evacuationTimer != null) evacuationTimer.StopTimer();
                     yield break;
                 }
 
@@ -72,6 +76,7 @@ private bool firstFireTriggered = false;
         {
             firstFireTriggered = true;
             if (fireWarning != null) fireWarning.ShowWarning();
+            if (evacuationTimer != null) evacuationTimer.StartTimer();
         }
         
     }
