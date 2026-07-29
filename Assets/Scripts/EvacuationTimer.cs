@@ -12,12 +12,24 @@ public class EvacuationTimer : MonoBehaviour
     [Header("Game Over UI")]
     public CanvasGroup gameOverPanel;
 
+    [Header("Game Over Screen")]
+    public GameOverScreen gameOverScreen;
+
     [Header("Success UI")]
     public CanvasGroup successPanel;
+
+    [Header("Success Screen")]
+    public SuccessScreen successScreen;
+
+    [Header("Safe Zone")]
+    public GameObject safeZoneCylinder;
+    public bool hideCylinderUntilWarning = true;
+
 
     [Header("Settings")]
     public float timeLimit = 100f;
     public float evacuationGraceTime = 10f;
+    
 
     [Header("Evacuation Panel Fade Timing")]
     public float fadeInTime = 0.3f;
@@ -30,12 +42,15 @@ public class EvacuationTimer : MonoBehaviour
     private bool graceRunning = false;
     private bool hasEnded = false;
 
+    
     void Start()
     {
         SetPanelInstant(evacuationPanel, false);
         SetPanelInstant(graceTimerCorner, false);
         SetPanelInstant(gameOverPanel, false);
         SetPanelInstant(successPanel, false);
+
+        if (safeZoneCylinder != null && hideCylinderUntilWarning) safeZoneCylinder.SetActive(false);
     }
 
     public void StartTimer()
@@ -49,6 +64,8 @@ public class EvacuationTimer : MonoBehaviour
         SetPanelInstant(graceTimerCorner, false);
         SetPanelInstant(gameOverPanel, false);
         SetPanelInstant(successPanel, false);
+
+        if (safeZoneCylinder != null && hideCylinderUntilWarning) safeZoneCylinder.SetActive(false);
     }
 
     public void StopTimer()
@@ -68,7 +85,12 @@ public class EvacuationTimer : MonoBehaviour
 
         StopTimer();
         SetPanelInstant(gameOverPanel, false);
-        SetPanelInstant(successPanel, true);
+
+        if (successScreen != null)
+            successScreen.ShowSuccessScreen();
+        else
+            SetPanelInstant(successPanel, true);
+
         Debug.Log("Player evacuated successfully!");
     }
 
@@ -102,11 +124,10 @@ public class EvacuationTimer : MonoBehaviour
 
     void ShowEvacuationWarning()
     {
-        // Center panel: brief fade in/hold/out
         StartCoroutine(FadeSequence(evacuationPanel));
-
-        // Corner timer: stays visible the whole grace period
         SetPanelInstant(graceTimerCorner, true);
+
+        if (safeZoneCylinder != null && hideCylinderUntilWarning) safeZoneCylinder.SetActive(true);
 
         graceTimeRemaining = evacuationGraceTime;
         graceRunning = true;
@@ -146,7 +167,11 @@ public class EvacuationTimer : MonoBehaviour
 
         SetPanelInstant(evacuationPanel, false);
         SetPanelInstant(graceTimerCorner, false);
-        SetPanelInstant(gameOverPanel, true);
+        if (gameOverScreen != null)
+            gameOverScreen.ShowGameOverScreen();
+        else
+            SetPanelInstant(gameOverPanel, true);
+        //SetPanelInstant(gameOverPanel, true);
         Debug.Log("GAME OVER: Player failed to evacuate in time.");
     }
 
