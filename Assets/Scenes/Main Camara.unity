@@ -25167,8 +25167,8 @@ MonoBehaviour:
   successScreen: {fileID: 211573446}
   safeZoneCylinder: {fileID: 2010944247}
   hideCylinderUntilWarning: 1
-  timeLimit: 12
-  evacuationGraceTime: 15
+  timeLimit: 100
+  evacuationGraceTime: 100
   fadeInTime: 0.5
   holdTime: 3
   fadeOutTime: 1
