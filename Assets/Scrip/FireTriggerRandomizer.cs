@@ -50,7 +50,7 @@ public class FireTriggerRandomizer : MonoBehaviour
                 {
                     Debug.Log("Fire was put out before the next one could spawn. Stopping fire trigger system.");
                     triggeringStopped = true;
-                    if (evacuationTimer != null) evacuationTimer.StopTimer();
+                    if (evacuationTimer != null) evacuationTimer.PlayerEvacuated();
                     yield break;
                 }
 
