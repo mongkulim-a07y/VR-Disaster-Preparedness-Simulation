@@ -878,7 +878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_Name
-      value: VFX_Fire_01_Big_Smoke (4)
+      value: VFX_F102
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_IsActive
@@ -9944,7 +9944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_Name
-      value: VFX_Fire_01_Big_Smoke (5)
+      value: VFX_F101
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_IsActive
@@ -16017,15 +16017,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117651929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 2.28}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -3.046, y: 6, z: 18.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1706632818}
   - {fileID: 672404373}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!143 &1117651933
 CharacterController:
   m_ObjectHideFlags: 0
@@ -17834,7 +17834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_Name
-      value: VFX_Fire_01_Big_Smoke
+      value: VFX_F002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21466,7 +21466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_Name
-      value: VFX_Fire_01_Big_Smoke (3)
+      value: VFX_F202
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_IsActive
@@ -23667,7 +23667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_Name
-      value: VFX_Fire_01_Big_Smoke (2)
+      value: VFX_F001
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_IsActive
@@ -25658,7 +25658,7 @@ Transform:
   m_GameObject: {fileID: 1729808601}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.669018, y: -10, z: -8.335001}
+  m_LocalPosition: {x: 47.669018, y: -10, z: 45.7}
   m_LocalScale: {x: 0.38952, y: 0.83206, z: 0.68250996}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28580,7 +28580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_Name
-      value: VFX_Fire_01_Big_Smoke (1)
+      value: VFX_F201
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304542, guid: 8206b722d11501a449d6a278cca2adfa, type: 3}
       propertyPath: m_IsActive
